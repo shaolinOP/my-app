@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
-import 'package:palette_generator/palette_generator.dart';
+
 import '/utils/helper.dart';
 
 class ThemeController extends GetxController {
@@ -62,21 +62,35 @@ class ThemeController extends GetxController {
 
   void setTheme(ImageProvider imageProvider, String songId) async {
     if (songId == currentSongId) return;
-    PaletteGenerator generator = await PaletteGenerator.fromImageProvider(
-        ResizeImage(imageProvider, height: 200, width: 200));
-    //final colorList = generator.colors;
-    final paletteColor = generator.dominantColor ??
-        generator.darkMutedColor ??
-        generator.darkVibrantColor ??
-        generator.lightMutedColor ??
-        generator.lightVibrantColor;
-    primaryColor.value = paletteColor!.color;
-    textColor.value = paletteColor.bodyTextColor;
-    // printINFO(paletteColor.color.computeLuminance().toString());0.11 ref
-    if (paletteColor.color.computeLuminance() > 0.10) {
-      primaryColor.value = paletteColor.color.withLightness(0.10);
-      textColor.value = Colors.white54;
+    
+    // Generate a color based on song ID hash (temporary replacement for palette_generator)
+    final colorOptions = [
+      Colors.deepPurple[400]!,
+      Colors.blue[400]!,
+      Colors.teal[400]!,
+      Colors.green[400]!,
+      Colors.orange[400]!,
+      Colors.red[400]!,
+      Colors.pink[400]!,
+      Colors.indigo[400]!,
+    ];
+    
+    final colorIndex = songId.hashCode.abs() % colorOptions.length;
+    final selectedColor = colorOptions[colorIndex];
+    
+    primaryColor.value = selectedColor;
+    textColor.value = Colors.white54;
+    
+    // Ensure the color is dark enough for good contrast
+    if (selectedColor.computeLuminance() > 0.10) {
+      primaryColor.value = Color.fromRGBO(
+        (selectedColor.red * 0.3).round(),
+        (selectedColor.green * 0.3).round(), 
+        (selectedColor.blue * 0.3).round(),
+        1.0
+      );
     }
+    
     final primarySwatch = _createMaterialColor(primaryColor.value!);
     themedata.value = _createThemeData(primarySwatch, ThemeType.dynamic,
         textColor: textColor.value,
