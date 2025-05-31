@@ -8,7 +8,7 @@ import 'package:hive/hive.dart';
 import '/utils/helper.dart';
 
 class ThemeController extends GetxController {
-  final primaryColor = Colors.deepPurple[400].obs;
+  final primaryColor = const Color(0xFF667eea).obs; // Elythra brand color
   final textColor = Colors.white24.obs;
   final themedata = Rxn<ThemeData>();
 
@@ -22,7 +22,7 @@ class ThemeController extends GetxController {
         WidgetsBinding.instance.platformDispatcher.platformBrightness;
 
     primaryColor.value =
-        Color(Hive.box('appPrefs').get("themePrimaryColor") ?? 4278199603);
+        Color(Hive.box('appPrefs').get("themePrimaryColor") ?? 0xFF667eea); // Elythra brand color
 
     changeThemeModeType(
         ThemeType.values[Hive.box('appPrefs').get("themeModeType") ?? 0]);
@@ -53,7 +53,7 @@ class ThemeController extends GetxController {
       if (sysCall) return;
       themedata.value = _createThemeData(
           value == ThemeType.dynamic
-              ? _createMaterialColor(primaryColor.value!)
+              ? _createMaterialColor(primaryColor.value)
               : null,
           value);
     }
@@ -63,16 +63,16 @@ class ThemeController extends GetxController {
   void setTheme(ImageProvider imageProvider, String songId) async {
     if (songId == currentSongId) return;
     
-    // Generate a color based on song ID hash (temporary replacement for palette_generator)
+    // Generate a color based on song ID hash with Elythra brand palette
     final colorOptions = [
-      Colors.deepPurple[400]!,
-      Colors.blue[400]!,
-      Colors.teal[400]!,
-      Colors.green[400]!,
-      Colors.orange[400]!,
-      Colors.red[400]!,
-      Colors.pink[400]!,
-      Colors.indigo[400]!,
+      const Color(0xFF667eea), // Primary Elythra blue
+      const Color(0xFF764ba2), // Secondary purple
+      const Color(0xFFf093fb), // Accent pink
+      const Color(0xFFf5576c), // Accent coral
+      const Color(0xFF4facfe), // Light blue
+      const Color(0xFF00f2fe), // Cyan
+      const Color(0xFFa8edea), // Mint
+      const Color(0xFFfed6e3), // Light pink
     ];
     
     final colorIndex = songId.hashCode.abs() % colorOptions.length;
@@ -91,12 +91,12 @@ class ThemeController extends GetxController {
       );
     }
     
-    final primarySwatch = _createMaterialColor(primaryColor.value!);
+    final primarySwatch = _createMaterialColor(primaryColor.value);
     themedata.value = _createThemeData(primarySwatch, ThemeType.dynamic,
         textColor: textColor.value,
         titleColorSwatch: _createMaterialColor(textColor.value));
     currentSongId = songId;
-    Hive.box('appPrefs').put("themePrimaryColor", (primaryColor.value!).value);
+    Hive.box('appPrefs').put("themePrimaryColor", primaryColor.value.value);
     setWindowsTitleBarColor(themedata.value!.scaffoldBackgroundColor);
   }
 

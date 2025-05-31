@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="note" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="512" cy="512" r="480" fill="url(#bg)" stroke="none"/>
+
+  <!-- Musical note design -->
+  <!-- Note head -->
+  <ellipse cx="350" cy="650" rx="45" ry="35" fill="url(#note)" transform="rotate(-20 350 650)"/>
+
+  <!-- Note stem -->
+  <rect x="390" y="400" width="12" height="250" fill="url(#note)" rx="6"/>
+
+  <!-- Note flag/beam -->
+  <path d="M 402 400 Q 480 380 520 420 Q 480 440 402 430 Z" fill="url(#note)"/>
+
+  <!-- Second note -->
+  <ellipse cx="580" cy="580" rx="45" ry="35" fill="url(#note)" transform="rotate(-20 580 580)"/>
+  <rect x="620" y="350" width="12" height="230" fill="url(#note)" rx="6"/>
+  <path d="M 632 350 Q 710 330 750 370 Q 710 390 632 380 Z" fill="url(#note)"/>
+
+  <!-- Sound waves -->
+  <path d="M 200 400 Q 250 380 300 400" stroke="rgba(255,255,255,0.3)" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M 180 450 Q 250 420 320 450" stroke="rgba(255,255,255,0.2)" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 160 500 Q 250 460 340 500" stroke="rgba(255,255,255,0.1)" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Stylized E for Elythra -->
+  <path d="M 420 780 L 420 880 L 600 880 L 600 860 L 440 860 L 440 840 L 580 840 L 580 820 L 440 820 L 440 800 L 600 800 L 600 780 Z" fill="rgba(255,255,255,0.8)"/>
+</svg>
