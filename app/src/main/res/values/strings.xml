@@ -209,6 +209,7 @@
     <string name="error_no_internet">No network connection</string>
     <string name="error_timeout">Timeout</string>
     <string name="error_unknown">Unknown error</string>
+    <string name="release_notes">Release Notes</string>
 
     <!-- Player action -->
     <string name="action_like">Like</string>
