@@ -26,7 +26,7 @@ import com.fncvianca.myapp.LocalPlayerAwareWindowInsets
 import com.fncvianca.myapp.R
 import com.fncvianca.myapp.ui.component.IconButton
 import com.fncvianca.myapp.ui.component.PreferenceEntry
-import com.fncvianca.myapp.ui.component.ReleaseNotesCard
+
 import com.fncvianca.myapp.ui.utils.backToMain
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -130,11 +130,7 @@ fun SettingsScreen(
                 },
             )
         }
-        PreferenceEntry(
-            title = { Text(stringResource(R.string.about)) },
-            icon = { Icon(painterResource(R.drawable.info), null) },
-            onClick = { navController.navigate("settings/about") }
-        )
+
         if (latestVersionName != BuildConfig.VERSION_NAME) {
             PreferenceEntry(
                 title = {
@@ -154,7 +150,7 @@ fun SettingsScreen(
                     uriHandler.openUri("https://github.com/fncvianca/android-part/releases/latest")
                 }
             )
-            ReleaseNotesCard()
+
         }
     }
 

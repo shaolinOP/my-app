@@ -54,7 +54,7 @@ import com.fncvianca.myapp.ui.screens.playlist.OnlinePlaylistScreen
 import com.fncvianca.myapp.ui.screens.playlist.TopPlaylistScreen
 import com.fncvianca.myapp.ui.screens.playlist.CachePlaylistScreen
 import com.fncvianca.myapp.ui.screens.search.OnlineSearchResult
-import com.fncvianca.myapp.ui.screens.settings.AboutScreen
+
 import com.fncvianca.myapp.ui.screens.settings.AccountSettings
 import com.fncvianca.myapp.ui.screens.settings.AppearanceSettings
 import com.fncvianca.myapp.ui.screens.settings.BackupAndRestore
@@ -308,9 +308,7 @@ fun NavGraphBuilder.navigationBuilder(
     composable("settings/discord/login") {
         DiscordLoginScreen(navController)
     }
-    composable("settings/about") {
-        AboutScreen(navController, scrollBehavior)
-    }
+
     composable("login") {
         LoginScreen(navController)
     }
