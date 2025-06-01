@@ -250,7 +250,7 @@ fun RichPresence(song: Song?) {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
-                text = "Listening to Metrolist",
+                text = "Listening to Elythra Music",
                 style = MaterialTheme.typography.labelLarge,
                 textAlign = TextAlign.Start,
                 fontWeight = FontWeight.ExtraBold,
@@ -365,13 +365,13 @@ fun RichPresence(song: Song?) {
                 onClick = {
                     val intent = Intent(
                         Intent.ACTION_VIEW,
-                        Uri.parse("https://github.com/mostafaalagamy/Metrolist")
+                        Uri.parse("https://github.com/fncvianca/android-part")
                     )
                     context.startActivity(intent)
                 },
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                Text("Visit Metrolist")
+                Text("Visit Elythra Music")
             }
         }
     }

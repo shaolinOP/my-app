@@ -30,7 +30,7 @@ import com.fncvianca.myapp.ui.theme.AppTypography
 val DefaultThemeColor = Color(0xFFED5564)
 
 @Composable
-fun MetrolistTheme(
+fun ElythraMusicTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     pureBlack: Boolean = false,
     themeColor: Color = DefaultThemeColor,

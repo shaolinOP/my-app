@@ -154,7 +154,7 @@ import com.fncvianca.myapp.ui.screens.settings.DarkMode
 import com.fncvianca.myapp.ui.screens.settings.NavigationTab
 import com.fncvianca.myapp.ui.theme.ColorSaver
 import com.fncvianca.myapp.ui.theme.DefaultThemeColor
-import com.fncvianca.myapp.ui.theme.MetrolistTheme
+import com.fncvianca.myapp.ui.theme.ElythraMusicTheme
 import com.fncvianca.myapp.ui.theme.extractThemeColor
 import com.fncvianca.myapp.ui.utils.appBarScrollBehavior
 import com.fncvianca.myapp.ui.utils.backToMain
@@ -334,7 +334,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
 
-            MetrolistTheme(
+            ElythraMusicTheme(
                 darkTheme = useDarkTheme,
                 pureBlack = pureBlack,
                 themeColor = themeColor,
